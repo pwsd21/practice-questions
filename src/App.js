@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import ClientPagination from "./components/ClientPagination";
+// import ClientPagination from "./components/ClientPagination";
+// import CheckoutStepper from "./components/CheckoutStepper";
+import InfiniteScrollList from "./components/InfiniteScroll";
 // import EventDelegation from "./components/EventDelegation";
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
   return (
     <div className="App">
       {/* <EventDelegation /> */}
-      <ClientPagination data={data} itemsPerPage={5} />
+      {/* <ClientPagination data={data} itemsPerPage={5} /> */}
+      {/* <CheckoutStepper /> */}
+      <InfiniteScrollList />
     </div>
   );
 }
