@@ -37,6 +37,19 @@ function App() {
       {/* <InfiniteScrollClient /> */}
       {/* <MultiSelect /> */}
       <InfiniteScroll />
+
+      {/* <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Body />}></Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/team" element={<Team />}></Route>
+          </Route>
+          <Route path="/about" element={<About lang={lang} />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/accordion" element={<Accordion />}></Route>
+          <Route path="/comments" element={<Comments />}></Route>
+        </Routes>
+      </BrowserRouter> */}
     </div>
   );
 }
