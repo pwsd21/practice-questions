@@ -1,32 +1,43 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
-const InfiniteScrollList = () => {
-  const [count, setCount] = useState(50);
+const InfiniteScroll = () => {
+  const [data, setData] = useState([]);
+  const [shimmer, setShowShimmer] = useState(false);
 
-  const elements = [];
-  for (let i = 1; i <= count; i++) {
-    elements.push(<div key={i}>{i}</div>);
-  }
-
-  // infinite scroll logic
-  const onScroll = useCallback(() => {
-    if (
-      window.innerHeight + window.scrollY >=
-      window.document.body.offsetHeight - 30
-    ) {
-      setCount((prevCount) => prevCount + 50);
+  const handleScroll = () => {
+    if (window.scrollY + window.innerHeight <= document.body.scrollHeight) {
+      fetchData();
     }
-  }, []);
+  };
 
   useEffect(() => {
-    // adding listener
-    window.addEventListener("scroll", onScroll);
+    fetchData();
 
-    // removing listener
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [onScroll]);
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
-  return <section>{elements}</section>;
+  const fetchData = async () => {
+    setShowShimmer(true);
+    const data = await fetch("https://meme-api.com/gimme/20");
+    const json = await data.json();
+    console.log(json);
+    setShowShimmer(false);
+    setData((data) => [...data, ...json.memes]);
+  };
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
+      {data.map((item) => (
+        <div
+          style={{ width: "200px", height: "200px", border: "2px solid black" }}
+        >
+          <p>{item.title}</p>
+          <p>{item.author}</p>
+        </div>
+      ))}
+      {shimmer && <Shimmer />}
+    </div>
+  );
 };
 
-export default InfiniteScrollList;
+export default InfiniteScroll;
