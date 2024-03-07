@@ -19,13 +19,13 @@ const data = [
 const Accordion = () => {
   const [openIndex, setOpenIndex] = useState(0);
   return (
-    <div className="w-[50%] m-auto mt-5">
+    <div className="flex flex-col w-[600px] m-auto mt-20 border border-gray-100">
       {data.map((item, index) => (
         <AccordionItem
           key={index}
           title={item.title}
           body={item.body}
-          isOpen={index === openIndex ? true : false}
+          isOpen={index === openIndex}
           setIsOpen={() => {
             index === openIndex ? setOpenIndex(null) : setOpenIndex(index);
           }}

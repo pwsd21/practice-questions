@@ -1,12 +1,13 @@
 // import { useEffect, useState } from "react";
 import "./App.css";
-import InfiniteScroll from "./components/InfiniteScroll";
+import Accordion from "./components/Accordion";
+// import InfiniteScroll from "./components/InfiniteScroll";
 // import ClientPagination from "./components/ClientPagination";
 // import CheckoutStepper from "./components/CheckoutStepper";
 // import InfiniteScrollList from "./components/InfiniteScroll";
 // import LoginForm from "./components/useRefForm";
 // import LoginFormYup from "./components/YupForm";
-import MultiSelect from "./components/MultiSelect";
+// import MultiSelect from "./components/MultiSelect";
 // import InfiniteScrollClient from "./components/ApiInfiniteScroll";
 // import EventDelegation from "./components/EventDelegation";
 
@@ -36,7 +37,8 @@ function App() {
       {/* <InfiniteScrollList /> */}
       {/* <InfiniteScrollClient /> */}
       {/* <MultiSelect /> */}
-      <InfiniteScroll />
+      {/* <InfiniteScroll /> */}
+      <Accordion />
 
       {/* <BrowserRouter>
         <Routes>
