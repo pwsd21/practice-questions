@@ -6,7 +6,10 @@ const InfiniteScroll = () => {
   const [shimmer, setShowShimmer] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY + window.innerHeight <= document.body.scrollHeight) {
+    if (
+      window.scrollY + window.innerHeight <=
+      document.body.scrollHeight - 200
+    ) {
       fetchData();
     }
   };
@@ -15,15 +18,19 @@ const InfiniteScroll = () => {
     fetchData();
 
     window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const fetchData = async () => {
     setShowShimmer(true);
-    const data = await fetch("https://meme-api.com/gimme/20");
-    const json = await data.json();
+    const response = await fetch("https://meme-api.com/gimme/20");
+    const json = await response.json();
     console.log(json);
     setShowShimmer(false);
-    setData((data) => [...data, ...json.memes]);
+    setData((prevData) => [...prevData, ...json.memes]);
   };
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>

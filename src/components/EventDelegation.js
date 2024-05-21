@@ -11,11 +11,11 @@ const EventDelegation = () => {
   return (
     <div className="main" onClick={handleClick}>
       <h1>Ram Ram Bhai</h1>
-      {name.map((item, index) => (
-        <ul>
+      <ul>
+        {name.map((item, index) => (
           <li key={index}>{item}</li>
-        </ul>
-      ))}
+        ))}
+      </ul>
     </div>
   );
 };

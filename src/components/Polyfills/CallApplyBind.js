@@ -1,28 +1,24 @@
 // Call
 
-if (!Function.prototype.call) {
-  Function.prototype.call = function (context, ...args) {
-    context = context || window;
-    const uniqueId = "call_" + Date.now();
-    context[uniqueId] = this;
-    const result = context[uniqueId](...args);
-    delete context[uniqueId];
-    return result;
-  };
-}
+Function.prototype.myCall = function (context, ...args) {
+  context = context || window;
+  let key = Symbol();
+  context[key] = this;
+  const res = context[key](...args);
+  delete context[key];
+  return res;
+};
 
 // Apply
 
-if (!Function.prototype.apply) {
-  Function.prototype.apply = function (context, argsArray) {
-    context = context || window;
-    const uniqueId = "apply_" + Date.now();
-    context[uniqueId] = this;
-    const result = context[uniqueId](...argsArray);
-    delete context[uniqueId];
-    return result;
-  };
-}
+Function.prototype.myApply = function (context, argsArray) {
+  context = context || window;
+  let key = Symbol();
+  context[key] = this;
+  const res = context[key](...argsArray);
+  delete context[key];
+  return res;
+};
 
 // Bind
 
@@ -34,3 +30,21 @@ if (!Function.prototype.bind) {
     };
   };
 }
+
+// USAGE
+function greet(greeting, punctuation) {
+  return `${greeting}, ${this.name}${punctuation}`;
+}
+
+const person = {
+  name: "John",
+};
+
+const polyfillResult = greet.myCall(person, "Hello", "!");
+console.log(polyfillResult);
+
+const bindResult = greet.myCall(person, ["Hello", "!"]);
+console.log(bindResult);
+
+const result = greet.myBind(person, "Hello", "punc");
+console.log(result());
