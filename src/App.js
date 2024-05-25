@@ -1,7 +1,6 @@
 // import { useEffect, useState } from "react";
 import "./App.css";
-import Accordion from "./components/Accordion";
-import Comments from "./components/comments/comments";
+import Main from "./components/Tictactoe/main";
 // import InfiniteScroll from "./components/InfiniteScroll";
 // import ClientPagination from "./components/ClientPagination";
 // import CheckoutStepper from "./components/CheckoutStepper";
@@ -41,7 +40,8 @@ function App() {
       {/* <InfiniteScroll /> */}
       {/* <Accordion /> */}
 
-      <Comments />
+      {/* <Comments /> */}
+      <Main />
 
       {/* <BrowserRouter>
         <Routes>

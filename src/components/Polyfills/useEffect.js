@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useState, useRef, useEffect as useNativeEffect } from "react";
 
 function useEffect(effect, deps) {
-  const [prevDeps, setPrevDeps] = useState(null);
+  const hasMounted = useRef(false);
+  const prevDeps = useRef(deps);
 
-  if (!prevDeps || !deps.every((dep, i) => dep === prevDeps[i])) {
-    effect();
-    setPrevDeps(deps);
-  }
+  useNativeEffect(() => {
+    if (hasMounted.current) {
+      // Check if dependencies have changed
+      if (!deps || !prevDeps.current.every((dep, i) => dep === deps[i])) {
+        effect();
+        prevDeps.current = deps;
+      }
+    } else {
+      // On initial mount, run the effect
+      hasMounted.current = true;
+      effect();
+    }
+  });
 
-  // No cleanup function in this basic polyfill
+  useNativeEffect(() => {
+    return () => {
+      hasMounted.current = false;
+    };
+  }, []);
 }
 
 export default useEffect;
