@@ -1,0 +1,51 @@
+MongoDB - find(), deleteOne, deleteMany, updateOne, updateMany,             - Document Query Language ( Horizaontal Scaling )
+Create new collection - db.myCollection.insertOne({ key: value })
+Querying - db.myCollection.find(), db.myCollection.find({key: value})
+
+Updating - db.myCollection.updateOne({ filter }, { $set: { key: value } }), db.collection.updateMany({ filter }, { $set: { key: value } });
+
+Deleting - db.myCollection.deleteOne({ filter }) , db.collection.deleteMany({ filter });
+
+Indexing: db.collection.createIndex({ key: 1 }); // Ascending index
+db.collection.createIndex({ key: -1 }); // Descending index
+
+Limit results: db.collection.find().limit(10);
+
+Sort:db.collection.find().sort({ key: 1 }); // Ascending
+db.collection.find().sort({ key: -1 }); // Descending
+
+Count - db.collection.count();
+
+db.collection.distinct("key");
+
+db.collection.find({ key: { $regex: /pattern/i } }); - Pattern filter
+
+Primary Key (PK):
+
+A primary key uniquely identifies each record in a table. It must be unique and not null. Each table can have only one primary key.
+Foreign Key (FK):
+
+A foreign key establishes a link between two tables. It is a field in one table that references the primary key in another table.
+Unique Key:
+
+A unique key ensures that all values in a column are unique. Unlike a primary key, a unique key can contain null values.
+Composite Key:
+
+A composite key consists of multiple columns that, together, uniquely identify each record in a table.
+Surrogate Key:
+
+A surrogate key is a unique identifier assigned to each record in a table. It is typically a system-generated number and is used as a primary key.
+
+
+PSQL - 									    - Structured Query Language ( Vertical Scaling )
+Create DB- CREATE DATABASE mydatabase;
+Create Tables: CREATE TABLE mytable (
+  id SERIAL PRIMARY KEY,
+  column1 TYPE,
+  column2 TYPE
+);
+
+Inserting : INSERT INTO mytable (column1, column2) VALUES (value1, value2);
+Querying: SELECT * FROM mytable;
+Updating: UPDATE mytable SET column1 = new_value WHERE condition;
+Delete : DELETE FROM mytable WHERE condition;

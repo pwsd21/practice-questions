@@ -1,0 +1,45 @@
+Next.js setup
+Liveblocks setup -> room.tsx( where people collaborate, multiple people should be connected to same room ) -> use this room in app/page.tsx
+-> LiveBlocks Hooks(useOthers -> to check whether any other user is there with us in our room or not) -> shadcn installation -> update global.css and tailwind.config.tsx in order to use shadcn with tailwind
+
+install liveblocks/react-comments -> set Metada in ( app/layout.tsx ) -> setup worksans font -> 
+
+Live Cursor :
+ Create Live environment -> compoenets/ Live.tsx -> Create components/cursor/ Cursor.tsx , LiveCursors.tsx, CursorChat.tsx
+ useOthers -> gives us details of all the live users ( e.g. connectionId, presence, 
+
+see -> Cursor.tsx -> transition and transformation part of cursor
+
+useMyPresence() -> do changes in Live.tsx -> handlePointerMove,handlePointerLeave, handlePOinterDown,updateMyPresence and import that in page.tsx
+
+LiveBlocks CursorChat -> to interact with other live user -> Call CursorChat in Live.tsx
+
+CursorChat.tsx -> transform and transition properties for chat - display previous cursorchat message also -> eventChange and escape kep press - focus shift
+
+Live.tsx -> onKeyUp, onKeyDown, on e.key - Escape -> handling
+Cusrsor.tsx -> to see live chat of user and handle text message space
+
+
+Reactions:
+components/reaction / ReactionButton.tsx,FlyingReaction.tsx,index.module.css
+Integrate -> ReactionSelector with Live.tsx , manage handlePointerMove, handlePointerDown, handlePOinterLeave, handlePointerUp
+ReactionButton -> press and unpress (e) to see reaction list,
+Integrate Flying Reaction into Live.tsx using useInterval() -> HOOK 
+
+useBraodCastEvent( -> Hook, to Broadcast Flying reactions to other users
+useEventListner() -> Broadcast the flying reactions coming from other user 
+
+LiveAvatarStack -> to see which all other users are ACTIVE
+users/ Avatar.tsx, ActiveUsers.tsx,AvatarModule.css, index.module.css
+useSelf() - current User
+
+Navbar.tsx -> integrate into page.tsx above Live component
+
+Create -> in page.tsx LeftSideBar, RightSideBar and in between the Canvas i.e Live Component
+
+page.tsx -> canvasRef, fabricRef, isDrawing, shapeRef, selectedShapeRef, canvas, canvas.on
+
+create unordered list in Navbar.tsx -> ShapesMenu, NewThread
+
+useStorage() -> undo/redo -> stores data in key:value pair ( convert shapedata -> JSON )
+useMutation() ->  
