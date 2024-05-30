@@ -10,15 +10,20 @@ const ClientPagination = ({ data, itemsPerPage }) => {
     : [];
 
   const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    if (
+      pageNumber >= 1 &&
+      pageNumber <= Math.ceil(data.length / itemsPerPage)
+    ) {
+      setCurrentPage(pageNumber);
+    }
   };
 
   return (
     <div>
       <h1>Ram Ram Bhai</h1>
       <ul>
-        {currentItems?.map((item, index) => (
-          <li key={index}>{item?.firstName}</li>
+        {currentItems?.map((item) => (
+          <li key={item.id}>{item.firstName}</li>
         ))}
       </ul>
       <div>
