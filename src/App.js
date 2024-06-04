@@ -1,6 +1,11 @@
 // import { useEffect, useState } from "react";
 import "./App.css";
-import Main from "./components/Tictactoe/main";
+// import LiveStream from "./components/LiveStream/LiveStream";
+import SearchUI from "./components/search-ui/SearchUI";
+// import ClientPaginate from "./components/Pagination/ClientPaginate";
+// import CarouselApp from "./components/Carousel/CarouselApp";
+// import Paginate from "./components/Pagination/Paginate";
+// import Main from "./components/Tictactoe/main";
 // import InfiniteScroll from "./components/InfiniteScroll";
 // import ClientPagination from "./components/ClientPagination";
 // import CheckoutStepper from "./components/CheckoutStepper";
@@ -41,7 +46,7 @@ function App() {
       {/* <Accordion /> */}
 
       {/* <Comments /> */}
-      <Main />
+      {/* <Main /> */}
 
       {/* <BrowserRouter>
         <Routes>
@@ -55,6 +60,11 @@ function App() {
           <Route path="/comments" element={<Comments />}></Route>
         </Routes>
       </BrowserRouter> */}
+      {/* <CarouselApp /> */}
+      {/* <Paginate /> */}
+      {/* <ClientPaginate /> */}
+      {/* <LiveStream /> */}
+      <SearchUI />
     </div>
   );
 }

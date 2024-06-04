@@ -1,12 +1,19 @@
-import React from "react";
-import ImageCarousel from "./ImageCarousel";
+import React, { useEffect, useState } from "react";
+import ImageCarousel from "./Carousel";
 
 const CarouselApp = () => {
-  const images = [
-    "https://example.com/image1.jpg",
-    "https://example.com/image2.jpg",
-    "https://example.com/image3.jpg",
-  ];
+  const [images, setImages] = useState([]);
+
+  const fetchData = async () => {
+    const res = await fetch("https://dummyjson.com/products");
+    const json = await res.json();
+    const data = json.products?.map((item) => item.thumbnail).slice(0, 5);
+    setImages(data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
