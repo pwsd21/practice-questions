@@ -1,37 +1,36 @@
 import React, { useState, useEffect } from "react";
 
-const ProgressBar = ({ duration, interval }) => {
+const ProgressBar = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const interval = setInterval(() => {
       setProgress((prevProgress) => {
-        const newProgress = prevProgress + (interval / duration) * 100;
-        return newProgress >= 100 ? 100 : newProgress;
+        if (prevProgress >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prevProgress + 1;
       });
-    }, interval);
+    }, 100);
 
-    return () => clearInterval(timer);
-  }, [duration, interval]);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
-      style={{
-        width: "100%",
-        backgroundColor: "#f0f0f0",
-        borderRadius: "4px",
-        marginTop: "20px",
-      }}
+      style={{ width: "100%", backgroundColor: "#e0e0df", borderRadius: "5px" }}
     >
       <div
         style={{
           width: `${progress}%`,
-          height: "20px",
-          backgroundColor: "#007bff",
-          borderRadius: "4px",
-          transition: `width ${interval / 1000}s linear`,
+          backgroundColor: "#76c7c0",
+          height: "30px",
+          borderRadius: "5px",
         }}
-      />
+      >
+        {progress}%
+      </div>
     </div>
   );
 };

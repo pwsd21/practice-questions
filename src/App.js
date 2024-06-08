@@ -1,7 +1,8 @@
 // import { useEffect, useState } from "react";
 import "./App.css";
+import ProgressBar from "./components/Progressbar";
 // import LiveStream from "./components/LiveStream/LiveStream";
-import SearchUI from "./components/search-ui/SearchUI";
+// import SearchUI from "./components/search-ui/SearchUI";
 // import ClientPaginate from "./components/Pagination/ClientPaginate";
 // import CarouselApp from "./components/Carousel/CarouselApp";
 // import Paginate from "./components/Pagination/Paginate";
@@ -64,7 +65,8 @@ function App() {
       {/* <Paginate /> */}
       {/* <ClientPaginate /> */}
       {/* <LiveStream /> */}
-      <SearchUI />
+      {/* <SearchUI /> */}
+      <ProgressBar />
     </div>
   );
 }
