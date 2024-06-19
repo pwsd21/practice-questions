@@ -1,0 +1,58 @@
+Install everything
+1.	Server.js
+2.	Created and checked dummy data , tried to get record
+3.	.env – store PORT
+4.	Nodemon for HMR ( Hot Module Reloading )
+5.	Chakra UI Setup and wrap
+6.	Fix CORS Error – Frontend Proxy
+7.	Routing – npm I react-router-dom
+8.	Data Modelling – npm I	 mongoose - models – ChatModel.js ( mongoose is used to connect to MongoDB Database and make queries to our database )
+9.	chatModels.js, messageModel.js, userModel.js
+10.	Create Frontend – Authentication/Login/Signup using Chakra UI 
+App.css -> Work Sans Import , give css to .App
+11.	Connect MongoDB to Node.js/Express
+12.	.env – MONGO_URI
+13.	Config -> db.js -> Export DB and import in server.js
+14.	npm i  colors 
+15.	USER Authentication -> server.js
+16.	Routes -> userRoutes.js
+17.	userController -> check for null values -> if user already exists -> else create new user
+18.	generateToken.js
+19.	 Go to postman and check your apis-> create a collection -> Authentication/RegisterUser
+20.	Change userModel.js, userController.js -> Add auth Logic, bcryptjs for password encryption, matchPassword function create and also userSchema.pre(‘save’, ()=> {}) method
+21.	Test APIs in Postman
+22.	Server.js -> notfound. Errorhandler
+23.	Middleware -> errorMiddleware.js, 
+24.	Authentication Frontend Part -> Signup.js -> submitHandler
+Cloudinary to handle Saving Image, toast-> to display error or success messages
+25.	Login.js -> SubmitHandler
+26.	Search API -> userRoutes.js( Give route -> allUsers )  and userControllers.js ( allUsers() using regex)
+27.	Middleware -> authMiddleware.js and integrate with userRoutes -> Test in postman
+28.	Create CHAT API -> server.js -> app.use(‘’, chatRoutes)-> routes -> chatRoutes.js
+ChatRoutes.js ( all the end points, access/fetch chats, add, remove, rename, etc.. )
+29.	chatControllers -> accessChat(), fetchChats(), createGroupChat(), renameGroup(), removeFromGroup(), addToGroup() & then Test APIs in Postman
+30.	Chats Page UI – Frontend-src/Context/ChatProvider.js -> wrap with Chatprovider in index.js
+31.	ChatPage.js -> SideDrawer, Mychats, ChatBox.js
+32.	ProfileModal.js
+33.	SideDrawer.js
+34.	ChatLoading.js -> Loading Skeleton stack
+35.	UserAvatar, Userlistitem
+36.	ChatLogics – import in MyChats
+37.	 Add css to remove scrollbar
+38.	Group Chat UI -> create misc/GroupChatModal.js and import it in MyChats.js
+39.	userBadgeItem, GroupChatModal contains logic to add, remove user while creating group
+40.	ChatBox.js
+41.	SingleChat.js
+42.	getSenderFull 
+43.	add, remove users -> UpdateGroupChatModal -> handleAdd, remove, rename, search
+44.	Send Message API -> backend/server.js ->  messageRoutes - consume
+45.	Routes/messageRoutes.js -> creation
+46.	Controllers/messageController.js -> 
+47.	UI for Single and Group Chat -> SingleChat.js, pass fetchMessages to updategroupchatmodal
+48.	ScrollableChat.js & ChatLogics.js
+49.	Socket.io Implementation -> server.js for backend, singleChat.js – for frontend
+50.	Typing Functionality -> SingleChat -> state manage & server.js -> establish connection
+51.	Lottie Animations -> download lottie json, use in SingleChat.js
+52.	NOTIFICATION -> Global state for notifications, SingleChat.js ->  notification logic
+53.	Sidedrawer.js -> notification UI Implementation & Logic
+54.	Install react notification badge in frontend

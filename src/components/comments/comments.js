@@ -1,6 +1,7 @@
 import React from "react";
 import CommentBox from "./CommentBox";
 
+// Sample data array containing comments and nested replies
 const data = [
   {
     userName: "Pawan",
@@ -28,6 +29,7 @@ const data = [
   },
 ];
 
+// Comments component that renders the CommentBox component with the data
 const Comments = () => {
   return (
     <div>

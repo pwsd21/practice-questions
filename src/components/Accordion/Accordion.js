@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AccordionItem from "./AccordionItem";
 
+// Sample data for the accordion items
 const data = [
   {
     title: "Accordion Item #1",
@@ -17,16 +18,19 @@ const data = [
 ];
 
 const Accordion = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(null); // State to track the currently open accordion item
+
   return (
     <div className="flex flex-col w-[600px] m-auto mt-20 border border-gray-100">
+      {/* Map over the data to render AccordionItem components */}
       {data.map((item, index) => (
         <AccordionItem
-          key={index}
+          key={index} // Unique key for each AccordionItem
           title={item.title}
           body={item.body}
-          isOpen={index === openIndex}
+          isOpen={index === openIndex} // Determine if the current item is open
           setIsOpen={() => {
+            // Toggle the open state of the current item
             index === openIndex ? setOpenIndex(null) : setOpenIndex(index);
           }}
         />
@@ -34,4 +38,5 @@ const Accordion = () => {
     </div>
   );
 };
+
 export default Accordion;
