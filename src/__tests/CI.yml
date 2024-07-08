@@ -1,0 +1,31 @@
+// .github/workflows/build.yml
+
+name: CI Pipeline # Name of the workflow
+
+on:
+  pull_request: # Trigger the workflow on pull requests
+    branches:
+      - master # Only run for pull requests targeting the master branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3 # Check out the repository code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3 # Set up Node.js environment
+        with:
+          node-version: '14' # Specify Node.js version to use
+
+      - name: Install dependencies
+        run: npm install # Install project dependencies
+
+      - name: Run tests
+        run: npm test # Run the test suite
+
+      - name: Build project
+        run: npm run build # Build the project
+
